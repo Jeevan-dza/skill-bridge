@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "app/(auth)/signup/page.tsx",
+    "app/(auth)/login/page.tsx",
+    "app/api/**/*.ts",
+    "app/(dashboard)/**/*.tsx",
+    "app/onboarding/page.tsx",
+    "app/page.tsx",
+    "lib/**/*.ts",
+    "middleware.ts",
+    "tailwind.config.ts"
+  ],
+  "exclude": ["node_modules", ".next"]
+}
