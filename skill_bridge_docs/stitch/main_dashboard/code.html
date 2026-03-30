@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillBridge | Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#006577",
+                        "on-surface-variant": "#464554",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "background": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#4648d4",
+                        "primary-container": "#6063ee",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#8455ef",
+                        "surface-container": "#eceef0",
+                        "primary-fixed": "#e1e0ff",
+                        "inverse-surface": "#2d3133",
+                        "surface-bright": "#f7f9fb",
+                        "on-background": "#191c1e",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-tertiary-container": "#f9fdff",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#004e5c",
+                        "on-surface": "#191c1e",
+                        "tertiary-container": "#008096",
+                        "inverse-primary": "#c0c1ff",
+                        "outline": "#767586",
+                        "tertiary-fixed": "#acedff",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed-dim": "#4cd7f6",
+                        "on-primary-container": "#fffbff",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c7c4d7",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e9ddff",
+                        "secondary": "#6b38d4",
+                        "surface-tint": "#494bd6",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-fixed": "#07006c",
+                        "on-secondary-fixed": "#23005c",
+                        "on-tertiary-fixed": "#001f26"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .radar-grid {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+        .glass-nav {
+            backdrop-filter: blur(24px);
+            background-color: rgba(247, 249, 251, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex">
+<!-- SideNavBar (Shared Component Identity) -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-50 dark:bg-slate-950 flex flex-col p-4 gap-2 border-r border-slate-100/50">
+<div class="px-4 py-6 mb-4">
+<h1 class="text-xl font-black text-indigo-600 dark:text-indigo-400 tracking-tight">SkillBridge</h1>
+<p class="text-[10px] font-medium Inter uppercase tracking-wider text-slate-500 mt-1">AI Career Guide</p>
+</div>
+<div class="px-4 py-4 mb-6 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-indigo-50/50 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a young professional man with a friendly expression in a modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZe9UoGx49gYSl2nG0ZZxGvwf_H23nVYS6Ud5nsn7jNuPLQHccSShNxRNAyD5anbkYk1FKfxZK4O2nzIdkxtSmozm3LSYuoZiCByTQ0nWbi-crClZaA0g0NOcKDop3GJ6stAy9cEZti7Ncmh1rTuMy4wuxyoeO7OsRbevctoqL5WbLPsMB5Cfpc8YTgqSVhTxCTPF2doLPcZVR1g2boZh35hmqROIK-Wss5kzF7EblfkFEz8bvYg1zqsnRci2qTRor7wYW5TFAtkI"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Alex</p>
+<span class="text-[10px] px-1.5 py-0.5 bg-indigo-50 text-indigo-600 rounded font-bold uppercase tracking-tighter">Data Analyst</span>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Active State: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 rounded-xl shadow-sm transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium Inter uppercase tracking-wider">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-sm font-medium Inter uppercase tracking-wider">Skill Gap</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="route">route</span>
+<span class="text-sm font-medium Inter uppercase tracking-wider">Learning Path</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="speed">speed</span>
+<span class="text-sm font-medium Inter uppercase tracking-wider">Job Readiness</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/50 transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-sm font-medium Inter uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-slate-200/50">
+<button class="w-full bg-gradient-to-br from-indigo-600 to-violet-600 text-white py-3 rounded-xl text-xs font-bold uppercase tracking-widest shadow-lg shadow-indigo-200 transition-all active:scale-95">Upgrade to Pro</button>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-error transition-all duration-200 mt-2" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm font-medium Inter uppercase tracking-wider">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 p-8 overflow-y-auto">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight">Welcome back, Alex</h2>
+<p class="text-on-surface-variant font-medium mt-1">Monday, October 21, 2024</p>
+</div>
+<div class="flex gap-3">
+<div class="p-3 bg-surface-container-low rounded-xl text-primary cursor-pointer hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-xl text-on-surface-variant cursor-pointer hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</div>
+</div>
+</header>
+<!-- TOP ROW: Stat Cards -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_40px_40px_-15px_rgba(70,72,212,0.04)] border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">bolt</span>
+</div>
+<span class="text-primary text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +5%
+                    </span>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Overall Readiness</p>
+<h3 class="text-2xl font-black text-on-surface">72%</h3>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_40px_40px_-15px_rgba(70,72,212,0.04)] border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<span class="text-primary text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +2
+                    </span>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Skills Identified</p>
+<h3 class="text-2xl font-black text-on-surface">15</h3>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_40px_40px_-15px_rgba(70,72,212,0.04)] border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">school</span>
+</div>
+<span class="text-primary text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +1
+                    </span>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Courses Completed</p>
+<h3 class="text-2xl font-black text-on-surface">4</h3>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_40px_40px_-15px_rgba(70,72,212,0.04)] border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">work</span>
+</div>
+<span class="text-primary text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">trending_up</span> +3
+                    </span>
+</div>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-wider mb-1">Job Matches</p>
+<h3 class="text-2xl font-black text-on-surface">12</h3>
+</div>
+</section>
+<!-- MIDDLE ROW: Insights Bento -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+<!-- Left: Skill Radar Chart -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/5">
+<div class="flex items-center justify-between mb-8">
+<h4 class="text-lg font-bold text-on-surface">Skill Radar</h4>
+<div class="flex gap-4 text-[10px] font-bold uppercase tracking-tighter">
+<div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-primary"></span> Current</div>
+<div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full border border-secondary"></span> Required</div>
+</div>
+</div>
+<!-- Simplified Radar Visualization using Asymmetric Polygons -->
+<div class="relative w-full h-64 flex items-center justify-center">
+<!-- Axes -->
+<div class="absolute inset-0 flex items-center justify-center opacity-10">
+<div class="w-full h-[1px] bg-outline rotate-0"></div>
+<div class="w-full h-[1px] bg-outline rotate-60"></div>
+<div class="w-full h-[1px] bg-outline rotate-120"></div>
+</div>
+<!-- Required Skill Hex -->
+<div class="absolute w-48 h-48 border-2 border-dashed border-secondary/30 radar-grid opacity-50"></div>
+<!-- Current Skill Hex (Filled) -->
+<div class="absolute w-36 h-36 bg-primary/20 border-2 border-primary radar-grid transform rotate-12 flex items-center justify-center">
+<span class="text-[8px] font-bold text-primary uppercase">Expertise Zone</span>
+</div>
+<!-- Labels -->
+<div class="absolute -top-4 font-bold text-[10px] text-on-surface-variant uppercase">Python</div>
+<div class="absolute -bottom-4 font-bold text-[10px] text-on-surface-variant uppercase">Communication</div>
+<div class="absolute -left-10 top-1/2 font-bold text-[10px] text-on-surface-variant uppercase -translate-y-1/2 -rotate-90">Statistics</div>
+<div class="absolute -right-10 top-1/2 font-bold text-[10px] text-on-surface-variant uppercase -translate-y-1/2 rotate-90">Power BI</div>
+<div class="absolute top-12 -right-8 font-bold text-[10px] text-on-surface-variant uppercase">SQL</div>
+<div class="absolute top-12 -left-8 font-bold text-[10px] text-on-surface-variant uppercase">Excel</div>
+</div>
+</div>
+<!-- Right: Job Readiness & Skill Chips -->
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/5 flex flex-col items-center">
+<h4 class="text-lg font-bold text-on-surface self-start mb-6">Readiness Analysis</h4>
+<!-- Circular Gauge -->
+<div class="relative w-48 h-48 mb-8">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Track -->
+<circle class="text-surface-container-highest" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-width="8"></circle>
+<!-- Progress -->
+<circle cx="50" cy="50" fill="none" r="45" stroke="url(#gradient)" stroke-dasharray="282.7" stroke-dashoffset="79.2" stroke-linecap="round" stroke-width="8"></circle>
+<defs>
+<lineargradient id="gradient" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#4648d4"></stop>
+<stop offset="100%" stop-color="#6b38d4"></stop>
+</lineargradient>
+</defs>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-black text-on-surface">72<span class="text-xl">%</span></span>
+<span class="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Score</span>
+</div>
+</div>
+<!-- Skill Chips -->
+<div class="w-full space-y-4">
+<div class="flex flex-wrap gap-2">
+<p class="w-full text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1">Gaps to Close</p>
+<span class="px-3 py-1.5 bg-red-50 text-red-600 rounded-full text-[10px] font-bold border border-red-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">close</span> Advanced Python
+                        </span>
+<span class="px-3 py-1.5 bg-red-50 text-red-600 rounded-full text-[10px] font-bold border border-red-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">close</span> Predictive Modeling
+                        </span>
+<span class="px-3 py-1.5 bg-red-50 text-red-600 rounded-full text-[10px] font-bold border border-red-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">close</span> Tableau
+                        </span>
+</div>
+<div class="flex flex-wrap gap-2">
+<p class="w-full text-[10px] font-black uppercase text-slate-400 tracking-wider mb-1">Ready Skills</p>
+<span class="px-3 py-1.5 bg-green-50 text-green-600 rounded-full text-[10px] font-bold border border-green-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span> SQL Queries
+                        </span>
+<span class="px-3 py-1.5 bg-green-50 text-green-600 rounded-full text-[10px] font-bold border border-green-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span> Excel VLOOKUP
+                        </span>
+<span class="px-3 py-1.5 bg-green-50 text-green-600 rounded-full text-[10px] font-bold border border-green-100 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">check_circle</span> Power BI
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<!-- BOTTOM ROW: Learning Path Timeline -->
+<section class="mb-8">
+<h4 class="text-xl font-bold text-on-surface mb-6">Active Learning Path</h4>
+<div class="flex flex-nowrap gap-4 overflow-x-auto pb-6 scrollbar-hide">
+<!-- Milestone 1: Completed -->
+<div class="min-w-[280px] bg-white p-6 rounded-xl border-l-4 border-green-500 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-green-50 text-green-600 text-[10px] font-bold rounded uppercase">Completed</span>
+<span class="material-symbols-outlined text-green-500" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h5 class="text-sm font-bold text-on-surface mb-1">SQL Basics</h5>
+<p class="text-xs text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-xs">schedule</span> 4 hours</p>
+</div>
+<!-- Milestone 2: Completed -->
+<div class="min-w-[280px] bg-white p-6 rounded-xl border-l-4 border-green-500 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-green-50 text-green-600 text-[10px] font-bold rounded uppercase">Completed</span>
+<span class="material-symbols-outlined text-green-500" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h5 class="text-sm font-bold text-on-surface mb-1">Excel Advanced</h5>
+<p class="text-xs text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-xs">schedule</span> 6 hours</p>
+</div>
+<!-- Milestone 3: In Progress -->
+<div class="min-w-[280px] bg-white p-6 rounded-xl border-l-4 border-primary shadow-lg ring-1 ring-primary/5">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-primary-fixed text-primary text-[10px] font-bold rounded uppercase">In Progress</span>
+<span class="material-symbols-outlined text-primary">play_circle</span>
+</div>
+<h5 class="text-sm font-bold text-on-surface mb-1">Power BI Fundamentals</h5>
+<p class="text-xs text-on-surface-variant flex items-center gap-1 mb-4"><span class="material-symbols-outlined text-xs">schedule</span> 8 hours</p>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[45%]"></div>
+</div>
+</div>
+<!-- Milestone 4: Locked -->
+<div class="min-w-[280px] bg-surface-container-low p-6 rounded-xl border-l-4 border-slate-300 opacity-70">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-slate-200 text-slate-500 text-[10px] font-bold rounded uppercase">Locked</span>
+<span class="material-symbols-outlined text-slate-400">lock</span>
+</div>
+<h5 class="text-sm font-bold text-on-surface mb-1">Statistics for Data</h5>
+<p class="text-xs text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-xs">schedule</span> 12 hours</p>
+</div>
+<!-- Milestone 5: Locked -->
+<div class="min-w-[280px] bg-surface-container-low p-6 rounded-xl border-l-4 border-slate-300 opacity-70">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-0.5 bg-slate-200 text-slate-500 text-[10px] font-bold rounded uppercase">Locked</span>
+<span class="material-symbols-outlined text-slate-400">lock</span>
+</div>
+<h5 class="text-sm font-bold text-on-surface mb-1">Capstone Project</h5>
+<p class="text-xs text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-xs">schedule</span> 20 hours</p>
+</div>
+</div>
+</section>
+<!-- Footer (Shared Component Identity) -->
+<footer class="mt-auto pt-12 border-t border-slate-100 dark:border-slate-800">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="font-bold text-slate-900 dark:text-white">SkillBridge AI</span>
+<p class="text-xs font-normal text-slate-500 Inter">© 2024 SkillBridge AI. All rights reserved.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-xs font-normal text-slate-500 Inter hover:text-indigo-500 transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs font-normal text-slate-500 Inter hover:text-indigo-500 transition-colors" href="#">Terms of Service</a>
+<a class="text-xs font-normal text-slate-500 Inter hover:text-indigo-500 transition-colors" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Skill Gap Analysis | SkillBridge AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary": "#006577",
+                        "on-surface-variant": "#464554",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "background": "#f7f9fb",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#4648d4",
+                        "primary-container": "#6063ee",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "inverse-on-surface": "#eff1f3",
+                        "error-container": "#ffdad6",
+                        "surface-container-low": "#f2f4f6",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#8455ef",
+                        "surface-container": "#eceef0",
+                        "primary-fixed": "#e1e0ff",
+                        "inverse-surface": "#2d3133",
+                        "surface-bright": "#f7f9fb",
+                        "on-background": "#191c1e",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "on-tertiary-container": "#f9fdff",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#004e5c",
+                        "on-surface": "#191c1e",
+                        "tertiary-container": "#008096",
+                        "inverse-primary": "#c0c1ff",
+                        "outline": "#767586",
+                        "tertiary-fixed": "#acedff",
+                        "surface": "#f7f9fb",
+                        "tertiary-fixed-dim": "#4cd7f6",
+                        "on-primary-container": "#fffbff",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c7c4d7",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#e9ddff",
+                        "secondary": "#6b38d4",
+                        "surface-tint": "#494bd6",
+                        "surface-variant": "#e0e3e5",
+                        "on-primary-fixed": "#07006c",
+                        "on-secondary-fixed": "#23005c",
+                        "on-tertiary-fixed": "#001f26"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "md": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .radar-grid {
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+            color: #191c1e;
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- Sidebar Navigation -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-slate-50 dark:bg-slate-950 flex flex-col p-4 gap-2">
+<div class="mb-8 px-4 py-2">
+<h1 class="text-xl font-black text-indigo-600 dark:text-indigo-400">SkillBridge</h1>
+<p class="text-[10px] font-medium uppercase tracking-widest text-slate-500">AI Career Guide</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/50 transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium tracking-wider uppercase">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 rounded-xl shadow-sm" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium tracking-wider uppercase">Skill Gap</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/50 transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">route</span>
+<span class="text-sm font-medium tracking-wider uppercase">Learning Path</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/50 transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">speed</span>
+<span class="text-sm font-medium tracking-wider uppercase">Job Readiness</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/50 transition-colors rounded-xl mt-12" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-sm font-medium tracking-wider uppercase">Profile</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-500 dark:text-slate-400 hover:text-indigo-500 hover:bg-white/50 transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm font-medium tracking-wider uppercase">Logout</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-indigo-600/10 rounded-xl">
+<p class="text-xs font-bold text-indigo-600 mb-2">PRO ACCESS</p>
+<p class="text-[11px] text-slate-600 mb-4 leading-relaxed">Unlock advanced market insights and AI-driven coaching.</p>
+<button class="w-full py-2 bg-indigo-600 text-white text-xs font-bold rounded-md hover:bg-indigo-700 transition-colors">Upgrade to Pro</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 min-h-screen p-12">
+<!-- Header -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Skill Gap Analysis</h2>
+<div class="flex items-center gap-3">
+<span class="text-lg text-on-surface-variant font-medium">Data Analyst Role</span>
+<span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full uppercase tracking-wider">Target Role</span>
+</div>
+</div>
+<button class="px-5 py-2.5 border border-outline-variant/30 text-on-surface-variant text-sm font-semibold rounded-md hover:bg-white hover:shadow-sm transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">edit</span>
+                Change Role
+            </button>
+</header>
+<!-- Section 1: Gap Summary Banner -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-primary p-6 rounded-xl shadow-sm text-white relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-6xl">list_alt</span>
+</div>
+<p class="text-xs font-bold uppercase tracking-widest opacity-80 mb-1">Total Skills Required</p>
+<h3 class="text-5xl font-black">15</h3>
+<div class="mt-4 h-1 w-12 bg-white/30 rounded-full"></div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-tertiary">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Skills You Have</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-5xl font-black text-on-surface">8</h3>
+<span class="text-tertiary font-bold text-sm">+2 this month</span>
+</div>
+<div class="mt-4 w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 53%;"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border-l-4 border-secondary">
+<p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-1">Skills to Learn</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-5xl font-black text-on-surface">7</h3>
+<span class="text-secondary font-bold text-sm">Critical Gap</span>
+</div>
+<div class="mt-4 flex gap-1">
+<div class="h-2 w-full bg-secondary rounded-full"></div>
+<div class="h-2 w-full bg-secondary rounded-full"></div>
+<div class="h-2 w-full bg-secondary rounded-full"></div>
+<div class="h-2 w-full bg-surface-container-high rounded-full"></div>
+<div class="h-2 w-full bg-surface-container-high rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Section 2: Split Layout -->
+<section class="grid grid-cols-12 gap-8 mb-12 items-start">
+<!-- Skill Table (60%) -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+<h4 class="text-xl font-bold text-on-surface mb-8">Detailed Competency Breakdown</h4>
+<div class="overflow-hidden">
+<table class="w-full text-left">
+<thead>
+<tr class="text-[10px] font-black uppercase tracking-[0.1em] text-on-surface-variant border-b border-surface-container-high">
+<th class="pb-4 font-black">Skill Name</th>
+<th class="pb-4 font-black">Current vs Required</th>
+<th class="pb-4 font-black text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="group">
+<td class="py-6 font-semibold text-on-surface">Python</td>
+<td class="py-6 w-1/2">
+<div class="flex items-center gap-4">
+<div class="flex-1 h-2 bg-surface-container-high rounded-full relative">
+<div class="absolute inset-y-0 left-0 bg-primary/20 rounded-full" style="width: 90%;"></div>
+<div class="absolute inset-y-0 left-0 bg-primary rounded-full shadow-sm" style="width: 75%;"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">75/90</span>
+</div>
+</td>
+<td class="py-6 text-right">
+<span class="px-3 py-1 bg-primary-container/10 text-primary text-[10px] font-black rounded-full uppercase tracking-tighter">In Progress</span>
+</td>
+</tr>
+<tr class="group">
+<td class="py-6 font-semibold text-on-surface">SQL</td>
+<td class="py-6">
+<div class="flex items-center gap-4">
+<div class="flex-1 h-2 bg-surface-container-high rounded-full relative">
+<div class="absolute inset-y-0 left-0 bg-primary/20 rounded-full" style="width: 100%;"></div>
+<div class="absolute inset-y-0 left-0 bg-tertiary rounded-full shadow-sm" style="width: 100%;"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">100/100</span>
+</div>
+</td>
+<td class="py-6 text-right">
+<span class="px-3 py-1 bg-tertiary/10 text-tertiary text-[10px] font-black rounded-full uppercase tracking-tighter">Completed</span>
+</td>
+</tr>
+<tr class="group">
+<td class="py-6 font-semibold text-on-surface">Tableau</td>
+<td class="py-6">
+<div class="flex items-center gap-4">
+<div class="flex-1 h-2 bg-surface-container-high rounded-full relative">
+<div class="absolute inset-y-0 left-0 bg-primary/20 rounded-full" style="width: 80%;"></div>
+<div class="absolute inset-y-0 left-0 bg-error rounded-full shadow-sm" style="width: 10%;"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">10/80</span>
+</div>
+</td>
+<td class="py-6 text-right">
+<span class="px-3 py-1 bg-error/10 text-error text-[10px] font-black rounded-full uppercase tracking-tighter">Not Started</span>
+</td>
+</tr>
+<tr class="group">
+<td class="py-6 font-semibold text-on-surface">Statistics</td>
+<td class="py-6">
+<div class="flex items-center gap-4">
+<div class="flex-1 h-2 bg-surface-container-high rounded-full relative">
+<div class="absolute inset-y-0 left-0 bg-primary/20 rounded-full" style="width: 70%;"></div>
+<div class="absolute inset-y-0 left-0 bg-primary rounded-full shadow-sm" style="width: 50%;"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">50/70</span>
+</div>
+</td>
+<td class="py-6 text-right">
+<span class="px-3 py-1 bg-primary-container/10 text-primary text-[10px] font-black rounded-full uppercase tracking-tighter">In Progress</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Radar Chart (40%) -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-lowest rounded-xl p-8 shadow-sm flex flex-col items-center">
+<div class="flex justify-between w-full mb-8">
+<h4 class="text-xl font-bold text-on-surface">Competency Map</h4>
+<div class="flex flex-col gap-1 items-end">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 bg-primary rounded-sm"></div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Current</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 border-2 border-secondary rounded-sm"></div>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase">Required</span>
+</div>
+</div>
+</div>
+<!-- Hexagonal Chart Visualization -->
+<div class="relative w-72 h-72 flex items-center justify-center">
+<!-- Base Grid -->
+<div class="absolute inset-0 radar-grid bg-surface-container p-0.5 opacity-20"></div>
+<div class="absolute inset-4 radar-grid bg-surface-container p-0.5 opacity-20"></div>
+<div class="absolute inset-8 radar-grid bg-surface-container p-0.5 opacity-20"></div>
+<!-- Required Level Outline (Violet) -->
+<div class="absolute w-[80%] h-[80%] radar-grid border-2 border-secondary opacity-40"></div>
+<!-- Current Level Area (Indigo) -->
+<div class="absolute w-[50%] h-[50%] radar-grid bg-primary opacity-60 flex items-center justify-center">
+<span class="text-[10px] text-white font-bold">MATCH: 53%</span>
+</div>
+<!-- Labels -->
+<span class="absolute -top-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Python</span>
+<span class="absolute top-1/4 -right-12 text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">SQL</span>
+<span class="absolute bottom-1/4 -right-12 text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Tableau</span>
+<span class="absolute -bottom-4 text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Statistics</span>
+<span class="absolute bottom-1/4 -left-12 text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Analysis</span>
+<span class="absolute top-1/4 -left-12 text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">ETL</span>
+</div>
+<div class="mt-12 text-center">
+<p class="text-sm text-on-surface-variant max-w-xs mx-auto leading-relaxed">
+                        Your technical foundations in <span class="text-tertiary font-bold">SQL</span> and <span class="text-primary font-bold">Python</span> are strong. Prioritize <span class="text-secondary font-bold">Data Visualization</span> tools to bridge the gap.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Section 3: Recommended Next Steps -->
+<section>
+<h4 class="text-2xl font-bold text-on-surface mb-6 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+                Recommended Next Steps
+            </h4>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Step 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-all group border border-transparent hover:border-primary/10">
+<div class="flex justify-between items-start mb-4">
+<span class="px-3 py-1 bg-error/10 text-error text-[10px] font-black rounded-full uppercase">Priority: High</span>
+<span class="text-on-surface-variant text-[10px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                            12h Est.
+                        </span>
+</div>
+<h5 class="text-lg font-bold text-on-surface mb-2">Mastering Tableau</h5>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">Bridge your largest gap by learning dashboard interactivity and data stories.</p>
+<button class="w-full py-3 bg-primary text-white text-xs font-bold rounded-md hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-2">
+                        Start Learning
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-all group border border-transparent hover:border-primary/10">
+<div class="flex justify-between items-start mb-4">
+<span class="px-3 py-1 bg-tertiary/10 text-tertiary text-[10px] font-black rounded-full uppercase">Priority: Medium</span>
+<span class="text-on-surface-variant text-[10px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                            8h Est.
+                        </span>
+</div>
+<h5 class="text-lg font-bold text-on-surface mb-2">Advanced Statistics</h5>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">Deepen your knowledge of hypothesis testing and regression analysis.</p>
+<button class="w-full py-3 bg-primary text-white text-xs font-bold rounded-md hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-2">
+                        Start Learning
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-all group border border-transparent hover:border-primary/10">
+<div class="flex justify-between items-start mb-4">
+<span class="px-3 py-1 bg-secondary/10 text-secondary text-[10px] font-black rounded-full uppercase">Priority: Core</span>
+<span class="text-on-surface-variant text-[10px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">schedule</span>
+                            4h Est.
+                        </span>
+</div>
+<h5 class="text-lg font-bold text-on-surface mb-2">Business Communication</h5>
+<p class="text-sm text-on-surface-variant mb-6 leading-relaxed">Translate complex data findings into actionable stakeholder insights.</p>
+<button class="w-full py-3 bg-primary text-white text-xs font-bold rounded-md hover:bg-primary-container transition-all active:scale-95 flex items-center justify-center gap-2">
+                        Start Learning
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="mt-20 py-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="text-xs font-normal text-slate-500">
+                © 2024 SkillBridge AI. All rights reserved.
+            </div>
+<div class="flex gap-8">
+<a class="text-xs text-slate-500 hover:text-indigo-500 transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs text-slate-500 hover:text-indigo-500 transition-colors" href="#">Terms of Service</a>
+<a class="text-xs text-slate-500 hover:text-indigo-500 transition-colors" href="#">Contact Support</a>
+</div>
+</footer>
+</main>
+</body></html>

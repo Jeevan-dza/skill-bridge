@@ -1,0 +1,47 @@
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Node.js
+skill_bridge_app/node_modules/
+skill_bridge_app/npm-debug.log
+skill_bridge_app/yarn-error.log
+
+# Next.js
+skill_bridge_app/.next/
+skill_bridge_app/out/
+skill_bridge_app/build/
+
+# Python
+skill_bridge_backend/__pycache__/
+skill_bridge_backend/*.py[cod]
+skill_bridge_backend/*$py.class
+skill_bridge_backend/venv/
+skill_bridge_backend/.venv/
+skill_bridge_backend/env/
+skill_bridge_backend/.pytest_cache/
+
+# Environments (CRITICAL: Do not commit secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+skill_bridge_app/.env
+skill_bridge_app/.env.local
+skill_bridge_backend/.env
+skill_bridge_backend/.env.local
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project logs
+*.log
