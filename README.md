@@ -1,116 +1,118 @@
+<div align="center">
+  
 # 🚀 SkillBridge AI
+
+**AI-Powered Career Development & Skill Gap Analysis Platform**
+---
 
 **SkillBridge AI** is an intelligent career development platform designed to bridge the gap between candidate skills and industry requirements. By leveraging AI, it analyzes resumes, identifies skill gaps for target roles, and generates personalized learning paths to improve job readiness.
 
----
-
 ## 🌟 Key Features
 
-* 📄 **Resume Analysis**
-  Extracts and evaluates user skills from uploaded resumes.
+* **📄 Intelligent Resume Analysis**  
+  Extracts and evaluates user skills, experience, and education from uploaded resumes using AI.
 
-* 🎯 **Skill Gap Identification**
-  Compares current skills with target job requirements.
+* **🎯 Dynamic Skill Gap Identification**  
+  Compares current skills against real-world target job requirements and highlights missing competencies.
 
-* 🧠 **AI-Powered Learning Paths**
-  Generates personalized learning roadmaps to bridge gaps.
+* **🧠 AI-Powered Learning Paths**  
+  Generates personalized, step-by-step learning roadmaps tailored to bridge identified skill gaps.
 
-* 📊 **Job Readiness Scoring**
-  Provides a measurable score to track career progress.
+* **📊 Job Readiness Scoring**  
+  Provides a measurable readiness score to track career progress and interview preparedness.
 
-* 🔐 **Authentication & Data Management**
-  Secure user authentication and real-time data storage.
+* **🔐 Secure Authentication & Session Management**  
+  Robust JWT-based session management using Firebase Authentication and Edge Middleware.
+
+* **⚡ Real-time Progress Tracking**  
+  Interactive dashboards to visualize skill acquisition and track learning milestones.
 
 ---
 
 ## 🛠 Tech Stack
 
-### Frontend
+### Frontend Architecture
+* **Framework:** Next.js 15 (App Router with Turbopack & React Compiler)
+* **Library:** React 19
+* **Styling:** Tailwind CSS v4, `tailwindcss-animate`, `clsx`, `tailwind-merge`
+* **Language:** TypeScript 5
+* **State & Forms:** React Hook Form, Zod (Schema Validation)
+* **Icons & UI:** Lucide React icons
+* **Auth:** Firebase SDK, `jose` for Edge JWT validation
 
-* Next.js 15 (App Router)
-* React
-* Tailwind CSS
-* TypeScript
-
-### Backend
-
-* FastAPI (Python)
-* Uvicorn
+### Backend Architecture
+* **Framework:** FastAPI (Python)
+* **Server:** Uvicorn (ASGI)
+* **Performance:** Async I/O, 8-second global response timeout middleware, optimized CORS handling
+* **Routing:** Modular prefix-based routing system
 
 ### Database & Services
-
-* Firebase Authentication
-* Firestore Database
-* Firebase Storage
-* Realtime Database
+* **Authentication:** Firebase Auth & Firebase Admin SDK
+* **Database:** Firestore (Real-time NoSQL state management)
+* **Storage:** Firebase Storage (Resume uploads)
 
 ---
 
-## 📁 Project Structure
+## 📁 System Architecture
 
-```
-skill_bridge/
-├── frontend/                # Next.js Application
-│   ├── app/                 # Pages (Dashboard, Auth, Onboarding)
-│   ├── components/          # Reusable UI components
-│   ├── lib/                 # Firebase & API configs
-│   ├── public/              # Static assets
-│   └── package.json
+```text
+skill_bridge_app/
+├── frontend/                # Next.js 15 Client
+│   ├── app/                 # App Router (Dashboard, Onboarding, Auth)
+│   ├── components/          # Reusable UI architecture (Forms, Layout, UI)
+│   ├── lib/                 # Firebase config & utilities
+│   ├── public/              # Static & brand assets
+│   ├── middleware.ts        # Edge JWT session verification
+│   └── package.json         # Node dependencies
 │
-├── backend/                 # FastAPI Application
-│   ├── core/                # Config & Firebase Admin setup
-│   ├── routes/              # API endpoints
-│   ├── models/              # Pydantic schemas
-│   ├── main.py              # Entry point
-│   └── requirements.txt
+├── backend/                 # FastAPI Service
+│   ├── core/                # Config & centralized Firebase Admin init
+│   ├── routes/              # API endpoints (resume, skill-gap, path, etc.)
+│   ├── models/              # Pydantic data validation schemas
+│   ├── services/            # Business logic & AI integrations
+│   ├── main.py              # Application entry point & middleware
+│   └── requirements.txt     # Python dependencies
 ```
 
 ---
 
-## ⚙️ Environment Setup
+## 🚀 Getting Started
 
-### 🔹 Prerequisites
+### Prerequisites
 
-* Node.js (v18+ recommended)
-* Python (v3.9+)
-* Firebase Project
+Ensure you have the following installed on your local machine:
+* **Node.js**: v18+ (v20+ recommended)
+* **Python**: v3.9+ 
+* **Firebase Project**: Set up via Firebase Console
 
 ---
 
-### 🔹 Frontend Setup
+### 1️⃣ Frontend Setup
+
+Navigate to the frontend directory and install dependencies:
 
 ```bash
 cd frontend
+npm install
+```
+
+Configure environment variables:
+```bash
 cp .env.example .env.local
 ```
+*Update `.env.local` with your Firebase Web configuration and Next.js settings.*
 
-Update `.env.local` with your Firebase web credentials.
-
----
-
-### 🔹 Backend Setup
-
+Start the Next.js development server (uses Turbopack):
 ```bash
-cd backend
-cp .env.example .env
+npm run dev
 ```
-
-Add your Firebase Admin SDK credentials.
-
----
-
-⚠️ **Security Note:**
-Never commit `.env` files or service account keys. Ensure they are included in `.gitignore`.
+*Frontend runs on `http://localhost:3000`*
 
 ---
 
-## 🚀 Running the Application
+### 2️⃣ Backend Setup
 
-Run backend and frontend in separate terminals.
-
----
-
-### ▶️ Start Backend
+Navigate to the backend directory and set up a virtual environment:
 
 ```bash
 cd backend
@@ -121,73 +123,72 @@ python -m venv venv
 .\venv\Scripts\activate
 # Mac/Linux:
 # source venv/bin/activate
+```
 
+Install Python dependencies:
+```bash
 pip install -r requirements.txt
+```
+
+Configure backend environment variables:
+```bash
+cp .env.example .env
+```
+*Add your Firebase Admin SDK service account credentials to the environment configuration.*
+
+Start the FastAPI server:
+```bash
 uvicorn main:app --reload --port 8000
 ```
-
-Backend URL:
-👉 http://localhost:8000
+*Backend runs on `http://localhost:8000` with interactive API docs at `http://localhost:8000/docs`*
 
 ---
 
-### ▶️ Start Frontend
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Frontend URL:
-👉 http://localhost:3000
+⚠️ **Security Note:**
+Never commit `.env`, `.env.local`, or Firebase service account JSON keys. Ensure they are excluded via `.gitignore`.
 
 ---
 
-## 📡 API Overview
+## 📡 API Reference
 
-| Endpoint     | Description               |
-| ------------ | ------------------------- |
-| `/resume`    | Resume parsing & analysis |
-| `/skill-gap` | Identify missing skills   |
-| `/readiness` | Job readiness scoring     |
+The FastAPI backend exposes the following core RESTful endpoints:
 
----
+| Endpoint | Method | Description |
+| :--- | :---: | :--- |
+| **`/api/parse-resume`** | `POST` | Parses uploaded resume documents and extracts key skills |
+| **`/api/skill-gap`** | `POST` | Calculates gap between user profile and target role |
+| **`/api/learning-path`**| `POST` | Generates a custom step-by-step roadmap |
+| **`/api/readiness-score`**| `GET` | Computes aggregate job readiness metrics |
+| **`/api/job-matches`** | `GET` | Recommends aligned job opportunities |
+| **`/api/progress`** | `POST` | Updates and syncs learning progress state |
 
-## 🧩 Future Enhancements
-
-* 🤖 Advanced AI career recommendations
-* 📚 Integrated learning platform APIs
-* 📈 Analytics dashboard for progress tracking
-* 🌐 Deployment (Vercel + Cloud Run/AWS)
+*For complete API documentation, input schemas, and interactive testing, visit the Swagger UI at `http://127.0.0.1:8000/docs` while the backend is running.*
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome!
+Contributions are always welcome! 
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit changes
-4. Open a Pull Request
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
 ## 📄 License
 
-This project is licensed under the **MIT License**.
-See the `LICENSE` file for details.
+This project is licensed under the **MIT License**. Check the `LICENSE` file for details.
 
 ---
 
-## 👨‍💻 Author
+<div align="center">
 
-**Jeevan Bevan Dsouza**
-AI/ML Engineering Student
+Made with ❤️ by **Jeevan Bevan Dsouza**  
+*AI/ML Engineering Student*
 
----
+If you found this project helpful or interesting, please consider giving it a ⭐ on GitHub!
 
-## ⭐ Support
-
-If you found this project useful, consider giving it a ⭐ on GitHub!
+</div>
